@@ -25,7 +25,7 @@ public class LevelCompleteUI : MonoBehaviour
         }
     }
 
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
        Time.timeScale = 1f;
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Transform player;
     public int maxClones = 5;
     private List<GameObject> clones = new List<GameObject>();
+    public Button rewindButton;
 
     void Update()
     {
@@ -17,7 +19,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   void Rewind()
+    void Start()
+    {
+        rewindButton.onClick.AddListener(Rewind);
+    }
+
+   public void Rewind()
 {
     List<FrameData> data = recorder.GetRecording();
 
