@@ -1,0 +1,14 @@
+.levelcomplete {
+position: absolute;
+top: 50%;
+left: 50%;
+translate: -50% -50%;
+
+align-items: center;
+justify-content: center;
+
+padding: 30px;
+border-radius: 12px;
+
+background-color: rgba(30, 30, 30, 0.9);
+}

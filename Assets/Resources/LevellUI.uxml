@@ -1,0 +1,20 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/topbar.uss?fileID=7433441132597879392&amp;guid=edfa0fc73969df1449243f9cd7e99bfe&amp;type=3#topbar"/>
+    <Style src="project://database/Assets/Resources/game-area.uss?fileID=7433441132597879392&amp;guid=5498ebabe6b31bc44a9e090aca8b5f6a&amp;type=3#game-area"/>
+    <Style src="project://database/Assets/Resources/bottom-bar.uss?fileID=7433441132597879392&amp;guid=9348f818181df9e4c91c2e4de7c03214&amp;type=3#bottom-bar"/>
+    <Style src="project://database/Assets/Resources/game-button.uss?fileID=7433441132597879392&amp;guid=100c67b47ac6aef41947bdc5068db27f&amp;type=3#game-button"/>
+    <Style src="project://database/Assets/Resources/clone-text.uss?fileID=7433441132597879392&amp;guid=5e62b3f9ebf905347af11388446c7654&amp;type=3#clone-text"/>
+    <Style src="project://database/Assets/Resources/root.uss?fileID=7433441132597879392&amp;guid=ead5b481ac87349478d196abdc4c821e&amp;type=3#root"/>
+    <ui:VisualElement name="Root" class="root" style="flex-grow: 1; height: 100%; background-color: rgba(18, 18, 18, 0); opacity: 1;">
+        <ui:VisualElement name="TopBar" class="top-bar" style="flex-grow: 0; height: auto; background-size: 100% 100%; flex-direction: row;">
+            <ui:Label text="Level 1" name="LevelText" class="top-text clone-text" style="-unity-text-align: lower-center; position: relative; top: auto; height: 34px; width: 101px; flex-direction: column;"/>
+            <ui:Label text="Timer" name="TimerText" selectable="false" focusable="false" class="top-text clone-text" style="-unity-text-align: lower-center; position: relative; top: auto; height: 34px; width: 101px; align-self: flex-start; align-content: flex-start; padding-left: 1px; right: auto;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="GameArea" class="game-area" style="flex-grow: 1;"/>
+        <ui:VisualElement name="BottomBar" class="bottom-bar" style="flex-grow: 0; height: auto; flex-direction: row;">
+            <ui:Button text="Restart" name="Restart" class="game-button"/>
+            <ui:Label text="Clones : " name="CloneText" class="top-text"/>
+            <ui:Button text="Replay" name="Replay" class="game-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

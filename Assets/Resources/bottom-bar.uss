@@ -1,0 +1,9 @@
+.bottom-bar {
+    height: 20px;
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #1e1e1e;
+}

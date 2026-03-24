@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class ExitZone : MonoBehaviour
 {
-    public LevelCompleteUI levelCompleteUI;
-    public GameObject gamePanel;
+    public GameObject LevelCompletePanel;
+    public GameObject LevelUI;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gamePanel.SetActive(false);
-            levelCompleteUI.ShowLevelComplete();
+            LevelCompletePanel.SetActive(true);
+            LevelUI.SetActive(false); 
         }
     }
 }

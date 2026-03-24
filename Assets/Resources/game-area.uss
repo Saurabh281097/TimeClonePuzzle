@@ -1,0 +1,4 @@
+.game-area {
+    flex-grow: 1;
+     background-color: transparent;
+}

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/overlay.uss?fileID=7433441132597879392&amp;guid=4d27580d08594fd4b8e447305579c544&amp;type=3#overlay"/>
+    <Style src="project://database/Assets/Resources/levelcompletefont.uss?fileID=7433441132597879392&amp;guid=dfb0216a46a4575459fe170f8b81551f&amp;type=3#levelcompletefont"/>
+    <Style src="project://database/Assets/Resources/levelCompleteContainer.uss?fileID=7433441132597879392&amp;guid=a642d794b0fc0484d8e8e0aa104169bb&amp;type=3#levelCompleteContainer"/>
+    <Style src="project://database/Assets/Resources/NextLevel.uss?fileID=7433441132597879392&amp;guid=9fc22f42a73d75d43ac99ff97eb28ac5&amp;type=3#NextLevel"/>
+    <ui:VisualElement name="Root" style="flex-grow: 1;">
+        <ui:VisualElement name="Overlay" class="overlay" style="flex-grow: 1;"/>
+        <ui:VisualElement name="LevekCompleteContainer" class="levelcomplete" style="flex-grow: 1;">
+            <ui:Label text="LEVEL COMPLETE" class="levelcompletefont" style="-unity-text-align: upper-center;"/>
+            <ui:Button text="NEXT LEVEL" name="NextLevel" class="nextlevel"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

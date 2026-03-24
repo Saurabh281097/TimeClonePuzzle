@@ -1,0 +1,9 @@
+.levelcompletefont{
+font-size: 32px;
+-unity-font-style: bold;
+
+color: white;
+
+margin-bottom: 20px;
+unity-text-align: middle-center;
+}

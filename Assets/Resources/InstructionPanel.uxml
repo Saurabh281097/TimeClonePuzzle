@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/InstructionStyle.uss?fileID=7433441132597879392&amp;guid=d0184b32f234efe4394f55ca8c80229d&amp;type=3#InstructionStyle"/>
+    <Style src="project://database/Assets/Resources/overlay.uss?fileID=7433441132597879392&amp;guid=4d27580d08594fd4b8e447305579c544&amp;type=3#overlay"/>
+    <Style src="project://database/Assets/Resources/clone-text.uss?fileID=7433441132597879392&amp;guid=5e62b3f9ebf905347af11388446c7654&amp;type=3#clone-text"/>
+    <ui:VisualElement name="Root" style="flex-grow: 1; justify-content: center; align-content: center; height: 100%;">
+        <ui:VisualElement name="BG" class="overlay" style="flex-grow: 1;"/>
+        <ui:VisualElement name="InstructionCard" style="flex-grow: 1; justify-content: center; align-items: center; align-content: center;">
+            <ui:Label text="Time Clone Puzzle&#10;" name="Title" class="clone-text" style="align-items: center; -unity-text-align: upper-center; -unity-font-style: bold; font-size: 32px;"/>
+            <ui:Label text="Control your character to solve puzzles.&#10;&#10;Your past actions will replay as clones.&#10;&#10;Use them wisely to unlock new paths.&#10;" name="Instuctions" class="clone-text" style="-unity-text-align: middle-center; font-size: 24px;"/>
+            <ui:Button text="Start" name="Start" style="width: 200px; height: 55px; right: auto; -unity-text-align: upper-center; font-size: 24px; -unity-font-style: bold; padding-left: 12px; padding-top: 10px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
