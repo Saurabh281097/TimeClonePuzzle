@@ -11,14 +11,11 @@ public class GameUIController : MonoBehaviour
     private Button replayButton;
     private Button resetButton;
     private Button startButton;
-    private Button leftButton;
-    private Button rightButton;
 
     private float timer = 0f;
     private int cloneCount = 0;
     private int levelNumber = 1;
     
-
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -31,8 +28,6 @@ public class GameUIController : MonoBehaviour
         replayButton = root.Q<Button>("Replay");
         resetButton = root.Q<Button>("Restart");
         startButton = root.Q<Button>("StartButton"); // optional
-        leftButton = root.Q<Button>("Left"); 
-        rightButton = root.Q<Button>("Right"); 
 
         // ===== Safety Checks =====
         if (replayButton == null) Debug.LogError("ReplayButton not found");
@@ -42,8 +37,6 @@ public class GameUIController : MonoBehaviour
         // ===== Bind Events =====
         replayButton.clicked += OnReplayClicked;
         resetButton.clicked += OnResetClicked;
-        leftButton.clicked += OnLeftClicked;
-        rightButton.clicked += OnRightClicked;
 
         if (startButton != null)
             startButton.clicked += OnStartClicked;
@@ -54,41 +47,6 @@ public class GameUIController : MonoBehaviour
         UpdateLevel(levelNumber);
          UpdateCloneCount();
         UpdateTimer(0);
-    }
-
-    void OnLeftClicked()
-    {
-        // Handle left button click
-        Debug.Log("Left Button Clicked");
-        GameObject gmObj = GameObject.FindGameObjectWithTag("Player");
-
-        if (gmObj != null)
-        {
-            PlayerController pc = gmObj.GetComponent<PlayerController>();
-            
-            if (pc != null)
-            {
-                pc.move(-1);
-            }
-        }
-    }
-
-    void OnRightClicked()
-    {
-        // Handle right button click
-        Debug.Log("Right Button Clicked");
-        GameObject gmObj = GameObject.FindGameObjectWithTag("Player");
-
-        if (gmObj != null)
-        {
-            Debug.Log("Right Button Clicked 11");
-            PlayerController pc = gmObj.GetComponent<PlayerController>();
-            
-            if (pc != null)
-            {
-                pc.move(1);
-            }
-        }
     }
 
     void Update()

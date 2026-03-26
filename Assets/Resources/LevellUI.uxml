@@ -14,9 +14,7 @@
         <ui:VisualElement name="GameArea" class="game-area" style="flex-grow: 1;"/>
         <ui:VisualElement name="BottomBar" class="bottom-bar" style="flex-grow: 0; height: auto; flex-direction: row;">
             <ui:Button text="Restart" name="Restart" class="game-button"/>
-            <ui:Button text="&lt;-" name="Left" class="arrowbutton"/>
             <ui:Label text="Clones : " name="CloneText" class="top-text"/>
-            <ui:Button text="-&gt;&#10;" name="Right" class="arrowbutton"/>
             <ui:Button text="Replay" name="Replay" class="game-button"/>
         </ui:VisualElement>
     </ui:VisualElement>
