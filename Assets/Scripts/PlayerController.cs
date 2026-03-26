@@ -10,6 +10,15 @@ public class PlayerController : MonoBehaviour
     bool actionPressed = false;
     bool bButtonPressed = false;
 
+    public float doubleTapTime = 0.3f;
+    public float tapDelay = 0.1f;
+
+    private float lastTapTime = 0f;
+    private bool waitingForSecondTap = false;
+
+    private Vector2 currentInputPos;
+    private bool isHolding = false;
+
     void Start()
     {
         GetComponent<Renderer>().material.color = Color.yellow;
@@ -44,6 +53,15 @@ public class PlayerController : MonoBehaviour
         Touch touch = Input.GetTouch(0);
         ProcessTouch(touch.position, touch.phase);
     }
+    if (Input.touchCount > 0)
+    {
+        Touch touch = Input.GetTouch(0);
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            DetectDoubleTap(touch.position);
+        }
+    }
 }
 
 void HandleMouseInput()
@@ -56,6 +74,11 @@ void HandleMouseInput()
 
     if (Input.GetMouseButtonUp(0))
         ProcessTouch(Input.mousePosition, TouchPhase.Ended);
+    
+    if (Input.GetMouseButtonDown(0))
+    {
+        DetectDoubleTap(Input.mousePosition);
+    }
 }
 
 void ProcessTouch(Vector2 pos, TouchPhase phase)
@@ -65,6 +88,34 @@ void ProcessTouch(Vector2 pos, TouchPhase phase)
     else
         MoveRight();
 }
+
+void DetectDoubleTap(Vector2 pos)
+{
+    if (Time.time - lastTapTime <= doubleTapTime)
+    {
+        SpawnClone();
+    }
+    lastTapTime = Time.time;
+}
+
+void SpawnClone()
+{
+    Debug.Log("Spawn Clone");
+    GameObject gmObj = GameObject.FindGameObjectWithTag("GameManager");
+
+    if (gmObj != null)
+        {
+            GameManager gm = gmObj.GetComponent<GameManager>();
+            
+            if (gm != null)
+            {
+                gm.Rewind();
+            }
+        }
+}
+
+
+
 
 void MoveLeft()
 {

@@ -15,7 +15,7 @@
         <ui:VisualElement name="BottomBar" class="bottom-bar" style="flex-grow: 0; height: auto; flex-direction: row;">
             <ui:Button text="Restart" name="Restart" class="game-button"/>
             <ui:Label text="Clones : " name="CloneText" class="top-text"/>
-            <ui:Button text="Replay" name="Replay" class="game-button"/>
+            <ui:Button text="Clone" name="Replay" class="game-button"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

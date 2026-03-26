@@ -28,15 +28,13 @@ public class GameManager : MonoBehaviour
 {
     List<FrameData> data = recorder.GetRecording();
 
-    // ❌ Prevent empty clones
+    // Prevent empty clones
     if (data.Count == 0)
         return;
 
-    // ❌ Limit number of clones
+    // Limit number of clones
     if (clones.Count >= maxClones)
     {
-        // Destroy(clones[0]);
-        // clones.RemoveAt(0);
         return;
     }
 
