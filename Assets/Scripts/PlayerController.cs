@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     bool actionPressed = false;
     bool bButtonPressed = false;
 
-    public float doubleTapTime = 0.3f;
+    public float doubleTapTime = 1.0f;
     public float tapDelay = 0.1f;
 
     private float lastTapTime = 0f;
@@ -26,11 +26,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(!bButtonPressed)
-            h = Input.GetAxis("Horizontal");
-        else
-            moveSpeed = 60;
-        
         #if UNITY_EDITOR
             HandleMouseInput();   // simulate touch
         #elif UNITY_WEBGL
@@ -40,54 +35,137 @@ public class PlayerController : MonoBehaviour
             HandleTouchInput();   // real touch
         #endif
     
-        Vector3 move = new Vector3(h, 0, 0);
-        transform.position += move * moveSpeed * Time.deltaTime;
-        bButtonPressed = false;
-        moveSpeed = 5f;
+        HandleMovement();
     }
 
     void HandleTouchInput()
 {
-    if (Input.touchCount > 0)
-    {
-        Touch touch = Input.GetTouch(0);
-        ProcessTouch(touch.position, touch.phase);
-    }
-    if (Input.touchCount > 0)
-    {
-        Touch touch = Input.GetTouch(0);
+    if (Input.touchCount == 0) return;
 
-        if (touch.phase == TouchPhase.Began)
+    Touch touch = Input.GetTouch(0);
+
+    if (touch.phase == TouchPhase.Began)
+    {
+        currentInputPos = touch.position;
+
+        if (touch.tapCount == 2)
         {
-            DetectDoubleTap(touch.position);
+            // DOUBLE TAP → clone only
+            SpawnClone();
+            isHolding = false;
+            waitingForSecondTap = false;
+            return;
         }
+
+        // single tap → prepare for hold movement
+        waitingForSecondTap = true;
+        Invoke(nameof(EnableHold), doubleTapTime);
+    }
+
+    if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+    {
+        isHolding = true;
+        currentInputPos = touch.position;
+    }
+
+    if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+    {
+        isHolding = false;
     }
 }
 
 void HandleMouseInput()
 {
-    if (Input.GetMouseButtonDown(0))
-        ProcessTouch(Input.mousePosition, TouchPhase.Began);
+ if (Input.GetMouseButtonDown(0))
+        {
+            currentInputPos = Input.mousePosition;
 
-    if (Input.GetMouseButton(0))
-        ProcessTouch(Input.mousePosition, TouchPhase.Moved);
+            if (Time.time - lastTapTime <= doubleTapTime)
+            {
+                CancelInvoke(nameof(EnableHold));
+                SpawnClone();
 
-    if (Input.GetMouseButtonUp(0))
-        ProcessTouch(Input.mousePosition, TouchPhase.Ended);
-    
-    if (Input.GetMouseButtonDown(0))
-    {
-        DetectDoubleTap(Input.mousePosition);
-    }
+                waitingForSecondTap = false;
+                isHolding = false;
+                lastTapTime = 0f;
+                return;
+            }
+            else
+            {
+                waitingForSecondTap = true;
+                lastTapTime = Time.time;
+                Invoke(nameof(EnableHold), tapDelay);
+            }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            currentInputPos = Input.mousePosition;
+            isHolding = true;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isHolding = false;
+        }
 }
 
 void ProcessTouch(Vector2 pos, TouchPhase phase)
 {
-    if (pos.x < Screen.width / 2)
-        MoveLeft();
-    else
-        MoveRight();
+    if (Input.touchCount == 0) return;
+
+        Touch touch = Input.GetTouch(0);
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            currentInputPos = touch.position;
+
+            if (Time.time - lastTapTime <= doubleTapTime)
+            {
+                CancelInvoke(nameof(EnableHold));
+                SpawnClone();
+
+                waitingForSecondTap = false;
+                isHolding = false;
+                lastTapTime = 0f;
+                return;
+            }
+            else
+            {
+                waitingForSecondTap = true;
+                lastTapTime = Time.time;
+                Invoke(nameof(EnableHold), tapDelay);
+            }
+        }
+
+        if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+        {
+            currentInputPos = touch.position;
+            isHolding = true;
+        }
+
+        if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+        {
+            isHolding = false;
+        }
 }
+
+ void EnableHold()
+    {
+        waitingForSecondTap = false;
+    }
+
+     void HandleMovement()
+    {
+        if (waitingForSecondTap) return;
+        if (!isHolding) return;
+
+        if (currentInputPos.x < Screen.width / 2f)
+            MoveLeft();
+        else
+            MoveRight();
+    }
+
 
 void DetectDoubleTap(Vector2 pos)
 {
@@ -113,9 +191,6 @@ void SpawnClone()
             }
         }
 }
-
-
-
 
 void MoveLeft()
 {
