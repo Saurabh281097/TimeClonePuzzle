@@ -82,8 +82,8 @@ public class GameUIController : MonoBehaviour
     {
         Debug.Log("Reset Clicked");
 
-        // TODO: reset player + clones
-         SceneManager.LoadScene("Level1");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
        
     }
 
