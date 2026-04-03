@@ -48,16 +48,16 @@ Using this mechanic, the player must:
 
 ## 🎥 Demo
 
-![demoreplay](https://github.com/user-attachments/assets/fe1c0585-9e2f-47b6-8f49-5df6568cbd4b)
+![demoreplay](https://github.com/user-attachments/assets/ef2c7f27-eec9-435e-9cdc-d73a4c212176)
+
 
 ---
 
 ## 🎮 Controls
 
-- **AD / Left Right Arrow Keys** → Move  
-- **R** → Rewind (create clone)  
+- *Use Mouse or touch movement* → Move  
+- **Clone** → Create clone  
 - **Restart Button** → Restart Level  
-- **Space** → Start / Continue  
 
 ---
 
