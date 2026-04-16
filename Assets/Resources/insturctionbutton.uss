@@ -1,0 +1,7 @@
+:root {
+background-color: #2563eb;
+color: white;
+border-radius: 8px;
+padding: 10px 20px;
+font-size: 18px;
+}

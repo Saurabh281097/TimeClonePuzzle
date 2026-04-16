@@ -7,12 +7,12 @@
     <Style src="project://database/Assets/Resources/root.uss?fileID=7433441132597879392&amp;guid=ead5b481ac87349478d196abdc4c821e&amp;type=3#root"/>
     <Style src="project://database/Assets/Resources/arrowbutton.uss?fileID=7433441132597879392&amp;guid=9f16abfbbefa7844ca4b65081e2e8460&amp;type=3#arrowbutton"/>
     <ui:VisualElement name="Root" class="root" style="flex-grow: 1; height: 100%; background-color: rgba(18, 18, 18, 0); opacity: 1;">
-        <ui:VisualElement name="TopBar" class="top-bar" style="flex-grow: 0; height: auto; background-size: 100% 100%; flex-direction: row;">
-            <ui:Label text="Level 1" name="LevelText" class="top-text clone-text" style="-unity-text-align: lower-center; position: relative; top: auto; height: 34px; width: 101px; flex-direction: column;"/>
-            <ui:Label text="Timer" name="TimerText" selectable="false" focusable="false" class="top-text clone-text" style="-unity-text-align: lower-center; position: relative; top: auto; height: 34px; width: 101px; align-self: flex-start; align-content: flex-start; padding-left: 1px; right: auto;"/>
+        <ui:VisualElement name="TopBar" class="top-bar" style="flex-grow: 0; height: 30px; background-size: 100% 100%; flex-direction: row; background-color: rgba(10, 15, 26, 0.33);">
+            <ui:Label text="Level 1" name="LevelText" class="top-text clone-text" style="-unity-text-align: upper-left; position: relative; top: auto; height: 34px; width: 101px; flex-direction: column; align-items: stretch; color: rgb(255, 255, 255);"/>
+            <ui:Label text="Timer" name="TimerText" selectable="false" focusable="false" class="top-text clone-text" style="-unity-text-align: upper-left; position: relative; top: auto; height: 34px; width: 101px; align-self: flex-start; align-content: flex-start; padding-left: 1px; right: auto; color: rgb(255, 254, 254); justify-content: flex-start; align-items: center;"/>
         </ui:VisualElement>
         <ui:VisualElement name="GameArea" class="game-area" style="flex-grow: 1;"/>
-        <ui:VisualElement name="BottomBar" class="bottom-bar" style="flex-grow: 0; height: auto; flex-direction: row;">
+        <ui:VisualElement name="BottomBar" class="bottom-bar" style="flex-grow: 0; height: 40px; flex-direction: row; background-color: rgba(10, 15, 26, 0.2);">
             <ui:Button text="Restart" name="Restart" class="game-button"/>
             <ui:Label text="Clones : " name="CloneText" class="top-text"/>
             <ui:Button text="Clone" name="Replay" class="game-button"/>

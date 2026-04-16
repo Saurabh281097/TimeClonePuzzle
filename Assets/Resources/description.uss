@@ -1,0 +1,5 @@
+.description {
+    font-size: 14px;
+    color: #cbd5f5;
+    margin-bottom: 16px;
+}

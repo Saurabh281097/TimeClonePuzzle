@@ -1,9 +1,12 @@
 .bottom-bar {
-    height: 20px;
-
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
-    background-color: #1e1e1e;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    height: 40px;
+
+    background-color: rgba(10, 15, 26, 0.2); /* subtle */
 }

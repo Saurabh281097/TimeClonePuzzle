@@ -1,0 +1,7 @@
+:root {
+    width: 420px;
+    padding: 24px;
+    background-color: rgba(20, 20, 30, 0.85);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}

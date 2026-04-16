@@ -1,0 +1,6 @@
+.control-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    color: #e2e8f0;
+}

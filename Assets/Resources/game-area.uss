@@ -1,4 +1,7 @@
 .game-area {
-    flex-grow: 1;
-     background-color: transparent;
+flex-direction: row
+justify-content: space-between
+align-items: center
+padding-left: 20px
+padding-right: 20px
 }
