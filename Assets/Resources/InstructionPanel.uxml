@@ -6,8 +6,8 @@
         <ui:VisualElement name="BG" class="overlay" style="flex-grow: 1;"/>
         <ui:VisualElement name="InstructionCard" style="flex-grow: 1; justify-content: center; align-items: center; align-content: center;">
             <ui:Label text="Time Clone Puzzle&#10;" name="Title" class="clone-text" style="align-items: center; -unity-text-align: upper-center; -unity-font-style: bold; font-size: 32px;"/>
-            <ui:Label text="Control your character to solve puzzles.&#10;Your past actions will replay as clones.&#10;Use them wisely to unlock new paths.&#10;&#10;Controls&#10;Movement - Mouse Tap or Touch&#10;Clone - Clone player&#10;Restart - Start Level Again" name="Instuctions" class="clone-text" style="-unity-text-align: middle-center; font-size: 24px;"/>
-            <ui:Button text="Start" name="Start" style="width: 200px; height: 55px; right: auto; -unity-text-align: upper-center; font-size: 24px; -unity-font-style: bold; padding-left: 12px; padding-top: 10px; top: 10%;"/>
+            <ui:Label text="&#10;Control your character to solve puzzles.&#10;Your past actions will replay as clones.&#10;Use them wisely to unlock new paths.&#10;&#10;Controls&#10;Movement - Mouse Tap or Touch&#10;Clone - Clone player&#10;Restart - Start Level Again&#10;&#10;" name="Instuctions" class="clone-text" style="-unity-text-align: middle-center; font-size: 24px;"/>
+            <ui:Button text="Start" name="Start" style="width: 200px; height: 55px; right: auto; -unity-text-align: upper-center; font-size: 24px; -unity-font-style: bold; padding-left: 12px; padding-top: 10px; top: auto;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

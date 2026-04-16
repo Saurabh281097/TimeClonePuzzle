@@ -8,7 +8,7 @@ public class ReplayController : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Renderer>().material.color = Color.magenta;
+        //GetComponent<Renderer>().material.color = Color.magenta;
     }
 
     public void Init(List<FrameData> data)
