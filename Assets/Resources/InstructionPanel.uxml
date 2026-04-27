@@ -1,12 +1,22 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Resources/InstructionStyle.uss?fileID=7433441132597879392&amp;guid=d0184b32f234efe4394f55ca8c80229d&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/overlay.uss?fileID=7433441132597879392&amp;guid=4d27580d08594fd4b8e447305579c544&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/clone-text.uss?fileID=7433441132597879392&amp;guid=5e62b3f9ebf905347af11388446c7654&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/instruction.uss?fileID=7433441132597879392&amp;guid=8490d439fb146904a9834eaa2f01d7ea&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/insturctionbutton.uss?fileID=7433441132597879392&amp;guid=7855b25c8d3f2fc408533599bce5da82&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/card.uss?fileID=7433441132597879392&amp;guid=3e52e9542e858a04c900f6deb6d34b0e&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/title.uss?fileID=7433441132597879392&amp;guid=aba4403a9dcc1794f9ebdeadebac3b92&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/subtitle.uss?fileID=7433441132597879392&amp;guid=de9a10fffbc047c4ca7b8f9031c28899&amp;type=3"/>
-    <Style src="project://database/Assets/Resources/description.uss?fileID=7433441132597879392&amp;guid=17e15db2cd626c444976485d3ce8a446&amp;type=3#description"/>
-    <Style src="project://database/Assets/Resources/control-row.uss?fileID=7433441132597879392&amp;guid=376fe3631300d644ba4a6a26c47435fa&amp;type=3#control-row"/>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/instructionpanelstyle.uss?fileID=7433441132597879392&amp;guid=72ccc78c3691c56418a410d867f52e53&amp;type=3#instructionpanelstyle"/>
+    <ui:VisualElement name="overlay" class="overlay">
+        <ui:VisualElement name="panel" class="panel">
+            <ui:Label name="title" text="How to Play" class="title"/>
+            <ui:VisualElement name="instructionsContainer" class="instructions-container">
+                <ui:VisualElement class="instruction-item">
+                    <ui:Label text="Hold Right Click (Mouse) or Hold Touch to move" class="instruction-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="instruction-item">
+                    <ui:Label text="Double Tap / Double Click to create a clone" class="instruction-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="instruction-item">
+                    <ui:Label text="Solve puzzle using timing" class="instruction-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-container">
+                <ui:Button name="startButton" text="Start Game"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

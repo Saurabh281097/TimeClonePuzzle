@@ -8,7 +8,7 @@ public class InstructionUI : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        Button startButton = root.Q<Button>("Start");
+        Button startButton = root.Q<Button>("startButton");
 
         startButton.clicked += OnStartClicked;
     }
