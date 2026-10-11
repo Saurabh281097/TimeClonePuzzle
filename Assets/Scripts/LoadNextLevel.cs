@@ -1,33 +1,80 @@
+
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class LoadNextLevel : MonoBehaviour
 {
-public Button nextButton;
+    private Button nextButton;
+    private Button retryButton;
+    private Label completedLevelText;
 
-void Start()
+    private void OnEnable()
+    {
+        var document = GetComponent<UIDocument>();
+
+        if (document == null)
+        {
+            Debug.LogError("UIDocument missing.");
+            return;
+        }
+
+        var root = document.rootVisualElement;
+
+        nextButton = root.Q<Button>("NextLevel");
+        retryButton = root.Q<Button>("RetryLevel");
+        completedLevelText =
+            root.Q<Label>("CompletedLevelText");
+
+        int level = SceneManager.GetActiveScene().buildIndex;
+
+        if (completedLevelText != null)
+            completedLevelText.text = $"LEVEL {level:00}";
+
+        if (nextButton != null)
+            nextButton.clicked += OnNext;
+
+        if (nextButton != null &&
+    SceneManager.GetActiveScene().name == "Level3")
 {
-   var root = GetComponent<UIDocument>().rootVisualElement;
-
-    nextButton = root.Q<Button>("NextLevel");
-
-    nextButton.clicked += OnNext;
+    nextButton.text = "BACK TO MENU";
 }
 
-void OnNext()
-{
-    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-    int nextIndex = currentIndex + 1;
-
-    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-    {
-        SceneManager.LoadScene(nextIndex);
+        if (retryButton != null)
+            retryButton.clicked += OnRetry;
     }
-    else
+
+    private void OnDisable()
     {
-        // fallback to start scene
+        if (nextButton != null)
+            nextButton.clicked -= OnNext;
+
+        if (retryButton != null)
+            retryButton.clicked -= OnRetry;
+    }
+
+    private void OnNext()
+    {
+    Time.timeScale = 1f;
+
+    int currentIndex =
+        SceneManager.GetActiveScene().buildIndex;
+
+    if (currentIndex >= 3)
+    {
         SceneManager.LoadScene("StartScene");
+        return;
     }
-}
+
+    SceneManager.LoadScene($"Level{currentIndex + 1}");
+    }
+
+    private void OnRetry()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().buildIndex
+        );
+    }
 }

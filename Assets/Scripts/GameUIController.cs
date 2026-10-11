@@ -94,32 +94,41 @@ public class GameUIController : MonoBehaviour
 
     // ===== UI Update Functions =====
 
-    public void UpdateLevel(int level)
-    {
-        levelNumber = level;
-        if (levelText != null)
-            levelText.text = "Level " + level;
-    }
+public void UpdateLevel(int level)
+{
+    levelNumber = level;
 
-    public void UpdateCloneCount()
-    {
-       GameObject gmObj = GameObject.FindGameObjectWithTag("GameManager");
+    if (levelText != null)
+        levelText.text = $"LEVEL {level:00}";
+}
 
-        if (gmObj != null)
-        {
-            GameManager gm = gmObj.GetComponent<GameManager>();
-            
-            if (gm != null)
-            {
-                 if (cloneText != null)
-                    cloneText.text = "Clones: " + (gm.maxClones - gm.CurrentCloneCount());
-            }
-        }
-    }
+public void UpdateCloneCount()
+{
+    GameObject gmObj =
+        GameObject.FindGameObjectWithTag("GameManager");
 
-    public void UpdateTimer(float time)
+    if (gmObj == null)
+        return;
+
+    GameManager gm = gmObj.GetComponent<GameManager>();
+
+    if (gm != null && cloneText != null)
     {
-        if (timerText != null)
-            timerText.text = time.ToString("F1");
+        int remaining =
+            gm.maxClones - gm.CurrentCloneCount();
+
+        cloneText.text = $"ECHOES LEFT: {remaining}";
     }
+}
+
+public void UpdateTimer(float time)
+{
+    if (timerText == null)
+        return;
+
+    int minutes = Mathf.FloorToInt(time / 60f);
+    float seconds = time % 60f;
+
+    timerText.text = $"{minutes:00}:{seconds:00.0}";
+}
 }

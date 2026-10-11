@@ -5,6 +5,9 @@ public class Switch : MonoBehaviour
     public bool isPressed = false;
 
     private int objectsOnSwitch = 0;
+    [Header("Sound Effects")]
+[SerializeField] private AudioSource sfxSource;
+[SerializeField] private AudioClip switchActivateSound;
 
     void Update()
     {
@@ -21,7 +24,9 @@ public class Switch : MonoBehaviour
         {
             objectsOnSwitch++;
             isPressed = true;
+             PlayActivationSound();
         }
+      
     }
 
     private void OnTriggerExit(Collider other)
@@ -37,4 +42,13 @@ public class Switch : MonoBehaviour
             }
         }
     }
+
+    private void PlayActivationSound()
+{
+    if (sfxSource != null && switchActivateSound != null)
+    {
+        sfxSource.PlayOneShot(switchActivateSound);
+    }
+}
+    
 }

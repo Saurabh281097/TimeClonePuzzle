@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/StartMenu.uss?fileID=7433441132597879392&amp;guid=5fd68a01eb35ddd40b113bfba91c2eda&amp;type=3#StartMenu"/>
+    <ui:VisualElement name="MenuRoot" class="menu-root">
+        <ui:VisualElement class="menu-card">
+            <ui:Label text="◷" class="menu-symbol"/>
+            <ui:Label text="TIME CLONE" class="menu-title"/>
+            <ui:Label text="ECHO LAB" class="menu-accent"/>
+            <ui:Label text="One timeline. Multiple versions of you." class="menu-subtitle"/>
+            <ui:Button name="PlayButton" text="PLAY" class="menu-button menu-primary"/>
+            <ui:Button name="SelectLevelButton" text="SELECT CHAMBER" class="menu-button menu-secondary"/>
+            <ui:Button name="QuitButton" text="QUIT" class="menu-button menu-outline"/>
+            <ui:Label text="A TIME MANIPULATION PUZZLE" class="menu-footer"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

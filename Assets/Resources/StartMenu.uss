@@ -1,0 +1,79 @@
+
+.menu-root {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #101827;
+}
+
+.menu-card {
+    width: 420px;
+    max-width: 90%;
+    padding: 18px;
+    align-items: center;
+    background-color: #1C2638;
+    border-radius: 18px;
+}
+
+.menu-symbol {
+    font-size: 34px;
+    color: #37E4E4;
+    margin-bottom: 6px;
+}
+
+.menu-title {
+    font-size: 38px;
+    color: #F0F5FF;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.menu-accent {
+    font-size: 18px;
+    color: #37E4E4;
+    -unity-font-style: bold;
+    margin-top: 5px;
+}
+
+.menu-subtitle {
+    font-size: 14px;
+    color: #94A3B8;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    -unity-text-align: middle-center;
+}
+.menu-button {
+    width: 100%;
+    height: 44px;
+    margin-top: 8px;
+    border-radius: 10px;
+    font-size: 16px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.menu-primary {
+    background-color: #37E4E4;
+    color: #101827;
+    border-width: 0;
+}
+
+.menu-secondary {
+    background-color: #303D52;
+    color: #F0F5FF;
+    border-width: 0;
+}
+
+.menu-outline {
+    background-color: transparent;
+    color: #F0F5FF;
+    border-width: 1px;
+    border-color: #43536B;
+}
+
+.menu-footer {
+    font-size: 11px;
+    color: #94A3B8;
+    margin-top: 24px;
+    -unity-text-align: middle-center;
+}

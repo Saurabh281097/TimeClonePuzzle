@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/LevelSelect.uss?fileID=7433441132597879392&amp;guid=e65411209d67bb840a1e52e9f62190eb&amp;type=3#LevelSelect"/>
+    <ui:VisualElement name="MenuRoot" class="menu-root">
+        <ui:VisualElement name="MenuCard" class="menu-card">
+            <ui:Label text="SELECT CHAMBER" class="menu-title"/>
+            <ui:Label text="Choose your timeline" class="menu-subtitle"/>
+            <ui:VisualElement class="level-grid">
+                <ui:VisualElement class="level-row">
+                    <ui:Button name="Level1Button" text="CHAMBER 01" class="level-button menu-primary"/>
+                    <ui:Button name="Level2Button" text="CHAMBER 02" class="level-button menu-secondary"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="level-row centered-row">
+                    <ui:Button name="Level3Button" text="CHAMBER 03" class="level-button menu-secondary"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Button name="BackButton" text="BACK TO MENU" class="back-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

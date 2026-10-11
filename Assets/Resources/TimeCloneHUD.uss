@@ -1,0 +1,95 @@
+
+/* TimeClonePuzzle - Mobile HUD */
+
+.root {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.top-bar {
+    height: 84px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.hud-card {
+    min-width: 110px;
+    padding: 8px 12px;
+    background-color: rgba(16, 24, 39, 0.85);
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: #43536B;
+}
+
+.hud-caption {
+    color: #94A3B8;
+    font-size: 11px;
+    -unity-font-style: bold;
+}
+
+.hud-value {
+    color: #F0F5FF;
+    font-size: 19px;
+    -unity-font-style: bold;
+    margin-top: 3px;
+}
+
+.game-area {
+    flex-grow: 1;
+}
+
+.bottom-bar {
+    min-height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 18px;
+    background-color: rgba(10, 15, 26, 0.35);
+}
+
+.restart-button {
+    width: 120px;
+    height: 54px;
+    color: #F0F5FF;
+    background-color: #43536B;
+    border-width: 2px;
+    border-color: #43536B;
+    border-radius: 12px;
+    font-size: 17px;
+    -unity-font-style: bold;
+}
+
+.echo-controls {
+    align-items: flex-end;
+}
+
+.echo-count {
+    color: #37E4E4;
+    font-size: 14px;
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+}
+
+.echo-button {
+    min-width: 170px;
+    height: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #37E4E4;
+    color: #101827;
+    border-radius: 12px;
+    border-width: 0;
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.echo-button:active {
+    background-color: #52E0A2;
+    scale: 0.96 0.96;
+}

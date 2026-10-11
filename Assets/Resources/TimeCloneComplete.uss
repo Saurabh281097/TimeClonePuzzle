@@ -1,0 +1,104 @@
+
+/* TimeClonePuzzle completion screen */
+
+.complete-root {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(5, 10, 20, 0.78);
+}
+
+.complete-card {
+    width: 440px;
+    max-width: 90%;
+    padding: 30px;
+    background-color: #101827;
+    border-width: 1px;
+    border-color: #43536B;
+    border-radius: 18px;
+    align-items: center;
+}
+
+.complete-icon {
+    font-size: 42px;
+    color: #52E0A2;
+    -unity-text-align: middle-center;
+    margin-bottom: 12px;
+}
+
+.complete-title {
+    color: #F0F5FF;
+    font-size: 28px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.complete-subtitle {
+    color: #94A3B8;
+    font-size: 14px;
+    -unity-text-align: middle-center;
+    margin-top: 8px;
+    margin-bottom: 22px;
+}
+
+.complete-level-card {
+    width: 100%;
+    min-height: 100px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #303D52;
+    padding: 14px;
+
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+
+.complete-caption {
+    color: #94A3B8;
+    font-size: 12px;
+    margin-bottom: 8px;
+    -unity-text-align: middle-center;
+}
+
+.complete-level {
+    color: #F0F5FF;
+    font-size: 24px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.complete-button {
+    width: 100%;
+    height: 54px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 17px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.complete-next {
+    background-color: #37E4E4;
+    color: #101827;
+    border-width: 0;
+}
+
+.complete-next:hover {
+    background-color: #52E0A2;
+}
+
+.complete-retry {
+    background-color: #303D52;
+    color: #F0F5FF;
+    border-width: 1px;
+    border-color: #43536B;
+}
+
+.complete-retry:hover {
+    background-color: #43536B;
+}

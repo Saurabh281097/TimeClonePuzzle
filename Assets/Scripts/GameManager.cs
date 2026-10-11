@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Button rewindButton;
     private Vector3 playerStartPosition;
     private Quaternion playerStartRotation;
+    [Header("Sound Effects")]
+[SerializeField] private AudioSource sfxSource;
+[SerializeField] private AudioClip cloneSpawnSound;
 
     private void Start()
     {
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour
         }
         replay.Init(data);
         clones.Add(clone);
+        PlayCloneSpawnSound();
 
         // Existing clones remain active: preserving multi-clone puzzle behavior.
         player.SetPositionAndRotation(playerStartPosition, playerStartRotation);
@@ -58,4 +62,13 @@ public class GameManager : MonoBehaviour
     }
 
     public int CurrentCloneCount() => clones.Count;
+
+
+    private void PlayCloneSpawnSound()
+{
+    if (sfxSource != null && cloneSpawnSound != null)
+    {
+        sfxSource.PlayOneShot(cloneSpawnSound);
+    }
+}
 }
