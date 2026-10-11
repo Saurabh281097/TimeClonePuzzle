@@ -8,53 +8,54 @@ public class GameManager : MonoBehaviour
     public GameObject clonePrefab;
     public Transform player;
     public int maxClones = 5;
-    private List<GameObject> clones = new List<GameObject>();
+    private readonly List<GameObject> clones = new List<GameObject>();
     public Button rewindButton;
+    private Vector3 playerStartPosition;
+    private Quaternion playerStartRotation;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (player != null)
         {
-            Rewind();
+            playerStartPosition = player.position;
+            playerStartRotation = player.rotation;
         }
+        if (rewindButton != null) rewindButton.onClick.AddListener(Rewind);
     }
 
-    void Start()
+    private void OnDestroy()
     {
-        rewindButton.onClick.AddListener(Rewind);
+        if (rewindButton != null) rewindButton.onClick.RemoveListener(Rewind);
     }
 
-   public void Rewind()
-{
-    List<FrameData> data = recorder.GetRecording();
-
-    // Prevent empty clones
-    if (data.Count == 0)
-        return;
-
-    // Limit number of clones
-    if (clones.Count >= maxClones)
+    private void Update()
     {
-        return;
+        if (Input.GetKeyDown(KeyCode.R)) Rewind();
     }
 
-    // ✅ Spawn clone at correct start position
-    GameObject clone = Instantiate(clonePrefab, data[0].position, Quaternion.identity);
+    public void Rewind()
+    {
+        if (recorder == null || clonePrefab == null || player == null) return;
+        if (clones.Count >= maxClones) return;
 
-    ReplayController replay = clone.GetComponent<ReplayController>();
-    replay.Init(data);
+        List<FrameData> data = recorder.GetRecording();
+        if (data.Count < 2) return;
 
-    clones.Add(clone);
+        GameObject clone = Instantiate(clonePrefab, data[0].position, Quaternion.identity);
+        ReplayController replay = clone.GetComponent<ReplayController>();
+        if (replay == null)
+        {
+            Debug.LogError("Clone prefab needs a ReplayController", clone);
+            Destroy(clone);
+            return;
+        }
+        replay.Init(data);
+        clones.Add(clone);
 
-    // ✅ Reset player
-    player.position = Vector3.zero;
+        // Existing clones remain active: preserving multi-clone puzzle behavior.
+        player.SetPositionAndRotation(playerStartPosition, playerStartRotation);
+        recorder.Clear(); // records a fresh t=0 frame at the reset position
+    }
 
-    // ✅ Clear recording
-    recorder.Clear();
-}
-
-public int CurrentCloneCount()
-{
-    return clones.Count;
-}
+    public int CurrentCloneCount() => clones.Count;
 }
