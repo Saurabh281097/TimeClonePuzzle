@@ -42,4 +42,9 @@ public class ReplayController : MonoBehaviour
         float alpha = span > 0.00001f ? Mathf.Clamp01((playbackTime - a.time) / span) : 1f;
         transform.position = Vector3.LerpUnclamped(a.position, b.position, alpha);
     }
+
+    private void LateUpdate()
+{
+    transform.rotation = Quaternion.identity;
+}
 }
